@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class PO1_SpartanGetRequest {
+public class PO1_SpartanGetRequests {
 
 
-    String url = "http://54.82.190.245:8000";
+    String url="http://54.82.190.245:8000";
 
 
     /**
@@ -20,7 +20,7 @@ public class PO1_SpartanGetRequest {
      * And Content type should be application/json
      *
      */
-@DisplayName("Get All Spartan")
+@DisplayName("Get All Spartans")
     @Test
     public void getAllSpartans() {
 
@@ -31,7 +31,7 @@ public class PO1_SpartanGetRequest {
                 .get(url + "/api/spartans");
 
         //print response
-        response.prettyPrint();
+       // response.prettyPrint();
 
 
         //how to get status code
@@ -53,7 +53,7 @@ public class PO1_SpartanGetRequest {
         //get content type with header
         System.out.println("resonse.header(\"Content-Type\")= " + response.header("Content-Type"));
 
-// can we get connecton() same as contentType() instead of using header?
+// can we get connection() same as contentType() instead of using header?
         //A--> Rest Assured created couple of method for common usage
         //statusCode() contentType() methods are specifically created by them, so there is connection  method
 
@@ -77,7 +77,7 @@ public class PO1_SpartanGetRequest {
      */
 
 
-   @DisplayName ("Get Single Spartan")
+   @DisplayName ("Get Single Spartans")
    @Test
     public void getSpartans() {
 
@@ -104,7 +104,7 @@ public class PO1_SpartanGetRequest {
        Assertions.assertTrue(response.body().asString().contains("Fidole"));
 
 /*
-it i snot good way to make assertion. In this we we are just converting response to String ny the help pf String contains we are just looking into Response. In real we need to verify name Fidole, Thats why we need access name key to get value of it which Fidole
+it i snot good way to make assertion. In this we are just converting response to String ny the help pf String contains we are just looking into Response. In real we need to verify name Fidole, That's why we need access name key to get value of it which Fidole
  */
        //What if we have typo while we are getting header
        System.out.println("response.header(\"KeepAlive\" = " + response.header("KeepAlive"));
@@ -120,10 +120,25 @@ it i snot good way to make assertion. In this we we are just converting response
          And Content-Length should be 17
          And body should be "Hello from Sparta"
      */
-   @DisplayName("Get Hello Spartan")
-   @Test
-    public void helloSpartan(){
+    @DisplayName("Hello Spartans")
+    @Test
+    public void helloSpartans (){
+        Response response= RestAssured.when().get(url + "/api/hello");
+RestAssured.given().get(url + "/api/hello");
 
+        int statusCode = response.getStatusCode();
+        Assertions.assertEquals(statusCode,200);
+
+        String actualContentType = response.contentType();
+        Assertions.assertEquals(actualContentType,"text/plain;charset=UTF-8");
+
+
+        String header = response.getHeader("Content-Length");
+        String body = response.getBody().asString();
+
+        Assertions.assertTrue(response.headers().hasHeaderWithName("Date"));
+        Assertions.assertEquals(header,"17");
+       Assertions.assertEquals(body,"Hello from Sparta");
 
         }
     }

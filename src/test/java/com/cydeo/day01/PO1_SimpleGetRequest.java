@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class PO1_SimpleGetRequest {
 
-    String url="http://54.82.190.245:8000/api/spartans";
+    String url="http://54.82.190.245:8000";
 
 
     /**
