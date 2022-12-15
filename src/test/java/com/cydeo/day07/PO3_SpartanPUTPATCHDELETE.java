@@ -23,7 +23,7 @@ public class PO3_SpartanPUTPATCHDELETE extends SpartanTestBase {
         requestBody.put("phone",1234567890l);
 
         // PUT will update existing record so we choose one the existing ID.It may be different for you.JUST choose one of the existing
-        int id=104;
+        int id=105;
 
         given().log().body()// since we are not getting any response we dont need it accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
@@ -46,7 +46,7 @@ public class PO3_SpartanPUTPATCHDELETE extends SpartanTestBase {
 
 
         // PATCH to update existing record partially.So we need to existing record
-        int id=104;
+        int id=105;
 
         given().log().body()// since we are not getting any response we dont need it accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
@@ -63,7 +63,7 @@ public class PO3_SpartanPUTPATCHDELETE extends SpartanTestBase {
     public void test3() {
 
 
-        int id=104;
+        int id=105;
 
         given().pathParam("id",id)
                 .when().delete("/api/spartans/{id}").

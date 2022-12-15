@@ -1,7 +1,10 @@
 package com.cydeo.day07;
 
 import com.cydeo.utilities.SpartanTestBase;
+import org.junit.jupiter.api.Test;
 
+import static io.restassured.RestAssured.*;
+import static org.junit.jupiter.api.Assertions.*;
 public class PO4_SpartanFlow extends SpartanTestBase {
 
 /*
@@ -14,6 +17,11 @@ public class PO4_SpartanFlow extends SpartanTestBase {
             - verify status code 201
             - message is "A Spartan is Born!"
             - take spartanID from response and save as a global variable
+
+
+
+
+
     - GET  Spartan with spartanID     /api/spartans/{id}
              - verify status code 200
              - verfiy name is API Flow POST
@@ -23,6 +31,12 @@ public class PO4_SpartanFlow extends SpartanTestBase {
                 gender="Female"
                 phone=3213213213l
              - verify status code 204
+
+
+
+
+
+
     - GET  Spartan with spartanID     /api/spartans/{id}
              - verify status code 200
              - verify name is API PUT Flow
@@ -38,4 +52,21 @@ public class PO4_SpartanFlow extends SpartanTestBase {
        if you need to carry data between HTTP Request use Java knowledge
      */
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
